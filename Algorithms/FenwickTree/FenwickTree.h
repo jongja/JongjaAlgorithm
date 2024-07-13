@@ -10,14 +10,16 @@
 
 typedef unsigned long long ull;
 
-struct Fenwick {
-    ull *fen_arr;
+struct Fenwick
+{
+    ull *fen_arr; /* Data type is very important */
     int size;
 
-    void init(int *arr, int s) {
+    void init(int *arr, int s)
+    {
         fen_arr = new ull[ARR_SIZE];
         size = s + 1;
-        for(int i = 0; i < s + 1; i++)
+        for (int i = 0; i < s + 1; i++)
             fen_arr[i] = 0;
 
         for (int i = 0; i < s; i++)
@@ -45,7 +47,8 @@ struct Fenwick {
         ull result = 0;
         int cur = n;
 
-        while (cur > 0) {
+        while (cur > 0)
+        {
             result += fen_arr[cur];
             cur = cur - (cur & -cur);
         }
